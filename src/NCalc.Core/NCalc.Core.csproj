@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <PackageId>NCalc.Core</PackageId>
+        <AssemblyName>NCalc.Core</AssemblyName>
+        <Description>Assembly with the core logic of NCalc.</Description>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>../../NCalc.snk</AssemblyOriginatorKeyFile>
+        <RootNamespace>NCalc</RootNamespace>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>    
+
+    <ItemGroup>
+        <None Include="../../NCalc.png">
+            <Pack>True</Pack>
+            <PackagePath>/</PackagePath>
+        </None>
+		<None Include="README.md" Pack="true" PackagePath="/" />
+    </ItemGroup>
+	
+    <ItemGroup Condition="'$(TargetFramework)' != 'net10.0'">
+        <PackageReference Include="System.Collections.Immutable" Version="10.0.7" />    
+    </ItemGroup>
+
+
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+        <PackageReference Include="System.ValueTuple" Version="4.6.2" />
+        <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ExtendedNumerics.BigDecimal" Version="3003.0.0.346" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.7" />
+        <PackageReference Include="Parlot" Version="1.5.7" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\NCalc.Parser\NCalc.Parser.csproj" />
+      <ProjectReference Include="..\NCalc.SourceGenerators\NCalc.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" PrivateAssets="all" />
+    </ItemGroup>
+</Project>

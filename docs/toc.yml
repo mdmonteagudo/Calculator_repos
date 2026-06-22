@@ -1,0 +1,11 @@
+- name: Articles
+  icon: fa-solid fa-book-open
+  href: articles/
+  homepage: articles/index.md
+- name: API Reference
+  icon: fa-solid fa-code
+  href: api/
+  homepage: api/NCalc.html
+- name: Playground
+  icon: fa-solid fa-play
+  href: playground.html

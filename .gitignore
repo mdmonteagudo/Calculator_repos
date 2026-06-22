@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿# Visual Studio
 .vs/
 
@@ -11,3 +12,24 @@ obj/
 
 # VS Code
 .vscode/
+=======
+/.vs
+/test/NCalc.Play/bin
+/test/NCalc.Play/obj
+/test/NCalc.Tests/bin
+/test/NCalc.Tests/obj
+/test/NCalc.Benchmarks/bin
+/test/NCalc.Benchmarks/obj
+/src/NCalc/bin
+/src/NCalc/obj
+/TestResults
+/packages
+/.axoCover
+/.temp
+*.bak
+bin/
+obj/
+.idea/
+/docs/api/
+*.user
+>>>>>>> other/master

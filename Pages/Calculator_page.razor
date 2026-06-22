@@ -1,0 +1,92 @@
+﻿@page "/calculator"
+
+<style>
+    .calculator {
+        width: 320px;
+        margin: auto;
+    }
+
+    .display {
+        background-color: black;
+        color: white;
+        font-size: 2rem;
+        text-align: right;
+        padding: 20px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+    }
+
+    button {
+        height: 70px;
+        font-size: 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+</style>
+
+<h3>Calculator</h3>
+
+<div class="calculator">
+
+    <div class="display">
+        @Display
+    </div>
+
+    <div class="buttons">
+        <button @onclick="Clear">C</button>
+        <button @onclick='() => AddOperator("÷")'>÷</button>
+        <button @onclick='() => AddOperator("×")'>×</button>
+        <button @onclick='() => AddOperator("-")'>-</button>
+
+        <button @onclick='() => AddDigit("7")'>7</button>
+        <button @onclick='() => AddDigit("8")'>8</button>
+        <button @onclick='() => AddDigit("9")'>9</button>
+        <button @onclick='() => AddOperator("+")'>+</button> 
+
+        <button @onclick='() => AddDigit("4")'>4</button>
+        <button @onclick='() => AddDigit("5")'>5</button>
+        <button @onclick='() => AddDigit("6")'>6</button>
+        <button>=</button>
+
+        <button @onclick='() => AddDigit("1")'>1</button>
+        <button @onclick='() => AddDigit("2")'>2</button>
+        <button @onclick='() => AddDigit("3")'>3</button>
+
+        <button @onclick='() => AddDigit("0")'>0</button>
+    </div>
+
+</div>
+
+@code {
+    private string Display = "0";
+    
+    //int result = Convert.ToInt32(Display);
+
+    public void AddDigit(string digit)
+    {
+        Display = Display + digit;
+    }
+
+    public void AddOperator(string operationSign)
+    {
+        // Implementation for setting the operation (e.g., +, -, ×, ÷)
+        Display = Display + " " + operationSign + " ";
+    }
+
+    public void Clear()
+    {
+        Display = "0";
+    }
+}
