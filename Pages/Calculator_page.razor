@@ -74,6 +74,18 @@
     
     //int result = Convert.ToInt32(Display);
 
+    public void Result()
+    {
+        // Implementation for calculating the result based on the current display value
+        // This is a placeholder; actual implementation would involve parsing the expression and performing calculations
+
+        double result = 0;
+            // Use NCalc to evaluate the expression in Display
+            var expression = new NCalc.Expression(Display.Replace("×", "*").Replace("÷", "/"));
+            result = Convert.ToDouble(expression.Evaluate());
+            Display = result.ToString();
+    }
+
     public void AddDigit(string digit)
     {
         Display = Display + digit;
